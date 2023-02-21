@@ -21,6 +21,8 @@ Three files are needed in order for this command to work:
 
 4. sim.spg wherech actually defines the "experiment": it assigns the parameters ranges, using pyspg sintax (see [pyspg wiki](https://github.com/tessonec/PySPG/wiki/Tutorial%3A-A-crash-course))
 
+5. sim_powerLawFloat.go is the Autopeering simulation from IOTA team golang
+
 
  ## Results intepretation
 
