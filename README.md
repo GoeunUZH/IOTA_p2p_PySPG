@@ -89,3 +89,5 @@ R,rho,zipfs,diameter
 
 `R`, `rho`, `zipfs`, `R` are parameters:
 - `R` is the neighbor bound of each node in 
+- `rho` is the the ratio determining the length of the rank to consider
+- `r` is the minimum number of nodes' identities to return for both lower and upper sets
