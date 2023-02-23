@@ -37,8 +37,7 @@ def run_simulation(par_dict):
     os.system(go_compile)
     os.system(go_command)
     
-    #filelist=glob.glob('outboundListrho'+ str(i)+'s'+ str(j) +'R'+ str(k)+'.txt')
-    #file_deal(filelist)
+    
 
     edge_list=[]
     with open("outboundList_" + fname + ".txt",'r') as f:
