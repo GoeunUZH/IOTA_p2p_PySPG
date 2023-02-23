@@ -48,6 +48,11 @@ def run_simulation(par_dict):
             for z in odom[1:]:
                 edge_list.append((n0,z))
 
+    
+    def mana_zipf(i, zipfs):
+        m=1e+10
+        return m*(math.pow(i,-zipfs))
+    
     g=gt.Graph(directed=False)
     nodes = g.add_vertex(N)
     mana_list = [mana_zipf(i, zipfs) for i in range(1,N+1)]
