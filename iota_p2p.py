@@ -27,12 +27,15 @@ def run_simulation(par_dict):
 
     N=par_dict['N']
     k=par_dict['k']
-    
+
+
     fname = f'N-{N}_k-{k}_rho-{round(rho,1):g}_zipfs-{round(zipfs,1):g}_R-{R}' 
-    my_command = f'./sim_powerLawFloat -rho {round(rho,1):g} -R {R} -Zipfs {round(zipfs,1):g} -N {N} -k {k} -fname  {fname}' 
+    go_compile = f'go build sim_powerLawFloat.go'
+    go_command = f'./sim_powerLawFloat -rho {round(rho,1):g} -R {R} -Zipfs {round(zipfs,1):g} -N {N} -k {k}' 
 
 #    print(my_command)
-    os.system(my_command)
+    os.system(go_compile)
+    os.system(go_command)
     
     #filelist=glob.glob('outboundListrho'+ str(i)+'s'+ str(j) +'R'+ str(k)+'.txt')
     #file_deal(filelist)
@@ -47,11 +50,20 @@ def run_simulation(par_dict):
                 edge_list.append((n0,z))
 
     g=gt.Graph(directed=False)
+    nodes = g.add_vertex(N)
+    mana_list = [mana_zipf(i, zipfs) for i in range(1,N+1)]
+
+
     g.add_edge_list(edge_list)
-    dist, ends = gt.pseudo_diameter(g)
+    v_mana = g.new_vertex_property("float")
+    for node, mana in zip(nodes, mana_list):
+        v_mana[node]= mana
+
+    
     output = {}
-    output['diameter'] = dist
+    output['diameter'],_ = gt.pseudo_diameter(g)
     output['clustering'],_ = gt.global_clustering(g)
+    output['assortativity'],_ = gt.scalar_assortativity(g, v_mana) 
      
     return output
 
@@ -109,5 +121,5 @@ if __name__ == '__main__':
         
         if options.clean_outputs:
             os.system("rm outboundList_*.txt")
-            os.system("rm manaListRho_*.txt")
+            os.system("rm manaList_*.txt")
 

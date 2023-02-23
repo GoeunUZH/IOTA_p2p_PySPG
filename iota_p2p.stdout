@@ -1,2 +1,3 @@
 diameter:label=diameter $D$
 clustering:label=Clustering $C$
+assortativity:label=Assortativity $R$

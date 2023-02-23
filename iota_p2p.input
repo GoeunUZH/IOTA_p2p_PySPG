@@ -1,3 +1,4 @@
 rho:type=float:default=4:help=This parameter represents mana neighbour range
 zipfs:type=float:default=1.2
 R:type=int:default=10
+k:type=int:default=4
