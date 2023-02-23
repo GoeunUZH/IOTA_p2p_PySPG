@@ -30,7 +30,7 @@ The output of the command in the previous section is a csv file, named sim.csv.
 
 For exanple, if we run the command:
 
-`python3 iota_p2p.py --repeat=2 --workers=32 sim.spg`
+`python iota_p2p.py --repeat=1 --workers=32 --clear-outputs sim.spg`
 
 with a `sim.spg` like
 
