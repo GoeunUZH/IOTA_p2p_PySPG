@@ -151,7 +151,6 @@ func main() {
 			calculateStatisticsLowDegreeNodes(inNeighbors, outNeighbors)
 			//			fmt.Print(" ")
 		}
-		// output in file
 
 		// output in file
 		// filenameResult := "outboundList_" + fname + ".txt"
