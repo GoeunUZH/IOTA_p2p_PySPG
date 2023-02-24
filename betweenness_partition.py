@@ -8,7 +8,7 @@ import math
 
 
                                   
-def get_unweighted_Partitioning(g):
+def get_unweighted_Partitioning(g, N):
     
     G=g.copy()
     eweight=G.edge_properties["link_weight"]
