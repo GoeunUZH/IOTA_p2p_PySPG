@@ -38,28 +38,31 @@ def run_simulation(par_dict):
     os.system(go_compile)
     os.system(go_command)
     
-    
+    def mana_zipf(i, zipfs):
+        m=1e+10
+        return m*(math.pow(i,-zipfs))
 
     edge_list=[]
+    mana_list = [mana_zipf(i, zipfs) for i in range(1,N+1)]
     with open("outboundList_" + fname + ".txt",'r') as f:
 #        data=f.readlines()
         for line in f:
             odom = [_-1 for _ in map(int, line.split() ) ]
             n0 = odom[0]
             for z in odom[1:]:
-                edge_list.append((n0,z))
+                e=min(mana_list[n0], mana_list[z])
+                edge_list.append((n0, z, e))
 
     
-    def mana_zipf(i, zipfs):
-        m=1e+10
-        return m*(math.pow(i,-zipfs))
+    
     
     g=gt.Graph(directed=False)
     nodes = g.add_vertex(N)
-    mana_list = [mana_zipf(i, zipfs) for i in range(1,N+1)]
-
-
-    g.add_edge_list(edge_list)
+    # add link weight as a base element in the generate graph
+    eweight = g.new_ep("float")
+    g.add_edge_list(edge_list, eprops=[eweight])
+    # remove parallel links
+    gt.remove_parallel_edges(g)
     v_mana = g.new_vertex_property("float")
     for node, mana in zip(nodes, mana_list):
         v_mana[node]= mana
