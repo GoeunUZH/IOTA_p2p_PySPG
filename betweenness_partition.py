@@ -11,16 +11,17 @@ import math
 def get_unweighted_Partitioning(g):
     
     G=g.copy()
+    eweight=G.edge_properties["link_weight"]
     original_weight = eweight.fa  
     #  print("G_weight", original_weight)
 
     for link in range(N):
-        u = gt.extract_largest_component(g,prune=True)
+        u = gt.extract_largest_component(G,prune=True)
         if len(list(u.vertices())) == N:
-            vp, ep = gt.betweenness(g)
+            vp, ep = gt.betweenness(G)
             list_ep=list(ep.fa)
             top_bt=list_ep.index(max(list_ep))
-            g.remove_edge(list(g.edges())[top_bt])
+            G.remove_edge(list(g.edges())[top_bt])
         else:
             break
     after_remove_weight = eweight.fa
@@ -28,7 +29,7 @@ def get_unweighted_Partitioning(g):
     partition_cost_ratio = (sum(original_weight)-sum((after_remove_weight)))/sum(original_weight)
 
 
-    sp = gt.GraphView(g, vfilt=gt.label_largest_component(g))
+    sp = gt.GraphView(G, vfilt=gt.label_largest_component(G))
     big_part_index=list(sp.vertex_index)
     total_index=range(N)
     small_part_index=[]
