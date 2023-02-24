@@ -8,8 +8,9 @@ import math
 
 
                                   
-def get_unweighted_Partitioning(g, N):
-    
+def get_unweighted_Partitioning(g, N, mana_list):
+
+
     G=g.copy()
     eweight=G.edge_properties["link_weight"]
     original_weight = eweight.fa  
