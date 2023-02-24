@@ -21,7 +21,7 @@ def get_unweighted_Partitioning(g, N):
             vp, ep = gt.betweenness(G)
             list_ep=list(ep.fa)
             top_bt=list_ep.index(max(list_ep))
-            G.remove_edge(list(g.edges())[top_bt])
+            G.remove_edge(list(G.edges())[top_bt])
         else:
             break
     after_remove_weight = eweight.fa
