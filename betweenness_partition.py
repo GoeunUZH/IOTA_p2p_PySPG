@@ -8,7 +8,7 @@ import math
 
 
                                   
- def get_unweighted_Partitioning(rho, zipfs, bigR):
+ def get_unweighted_Partitioning(g):
     
     G=g.copy()
     original_weight = eweight.fa  

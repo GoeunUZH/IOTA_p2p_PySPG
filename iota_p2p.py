@@ -14,6 +14,8 @@ from graph_tool.all import *
 import graph_tool.all as gt
 import math
 
+from betweenness_partition import get_unweighted_Partitioning
+
 import spg
 from spg.runner import SingleRunner
 
@@ -72,6 +74,9 @@ def run_simulation(par_dict):
     output['diameter'],_ = gt.pseudo_diameter(g)
     output['clustering'],_ = gt.global_clustering(g)
     output['assortativity'],_ = gt.scalar_assortativity(g, v_mana) 
+    output['partition_cost_ratio'],_ = get_unweighted_Partitioning(g)
+    _,output['small_mana_percent'] = get_unweighted_Partitioning(g)
+
      
     return output
 
