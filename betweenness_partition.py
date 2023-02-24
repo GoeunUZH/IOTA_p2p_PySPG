@@ -8,11 +8,11 @@ import math
 
 
                                   
- def get_unweighted_Partitioning(g):
+def get_unweighted_Partitioning(g):
     
     G=g.copy()
     original_weight = eweight.fa  
-#  print("G_weight", original_weight)
+    #  print("G_weight", original_weight)
 
     for link in range(N):
         u = gt.extract_largest_component(g,prune=True)
@@ -24,10 +24,10 @@ import math
         else:
             break
     after_remove_weight = eweight.fa
-    
+
     partition_cost_ratio = (sum(original_weight)-sum((after_remove_weight)))/sum(original_weight)
 
-    
+
     sp = gt.GraphView(g, vfilt=gt.label_largest_component(g))
     big_part_index=list(sp.vertex_index)
     total_index=range(N)
@@ -41,5 +41,5 @@ import math
     small_mana_percent = sum(small_part_mana_list)/sum(mana_list)
 
 
-                  
+                    
     return(partition_cost_ratio, small_mana_percent)
