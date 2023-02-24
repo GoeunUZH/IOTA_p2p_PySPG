@@ -63,6 +63,7 @@ def run_simulation(par_dict):
     # add link weight(cheaper side mana value) as a base element in the generate graph
     eweight = g.new_ep("float")
     g.add_edge_list(edge_list, eprops=[eweight])
+    g.edge_properties["link_weight"] = eweight
     # remove parallel links
     gt.remove_parallel_edges(g)
     v_mana = g.new_vertex_property("float")
