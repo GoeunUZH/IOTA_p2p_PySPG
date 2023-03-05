@@ -1,6 +1,6 @@
 @execute iota_p2p.py
-.R 2 10
+.R 10
 :rho 2.5 
 .N 1000
-.zipfs 0.5 0.8 
+.zipfs 0.8 
 .k 4
