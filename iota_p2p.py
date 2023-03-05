@@ -74,7 +74,7 @@ def run_simulation(par_dict):
     output = {}
     output['diameter'],_ = gt.pseudo_diameter(g)
     output['clustering'],_ = gt.global_clustering(g)
-    # output['assortativity'],_ = gt.scalar_assortativity(g, v_mana) 
+    output['assortativity'],_ = gt.scalar_assortativity(g, v_mana) 
     output['assortativit'],_ = gt.scalar_assortativity(g, v_mana) 
     # output['partitionCostRatio'],_ = get_unweighted_Partitioning(g, N, mana_list)
     # _,output['smallManaPercent'] = get_unweighted_Partitioning(g, N, mana_list)
