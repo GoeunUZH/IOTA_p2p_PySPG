@@ -1,6 +1,7 @@
 diameter:label=diameter $D$
 clustering:label=Clustering $C$
 assortativity:label=Assortativity $R$
-smallManaPercent:label=small_mana_percent $Damage$
-partitionCostRatio:label=partition_cost_ratio $Cost$
-smallManaPercent:label=small_mana_percent $Damage$
+bt_partitionCostRatio:label=bt_partition_cost_ratio $BC$
+bt_smallManaPercent:label=bt_small_mana_percent $BD$
+greedy_partitionCostRatio:label=greedy_partitionCostRatio $BC$
+greedy_smallManaPercent:label=greedy_small_mana_percent $BD$
