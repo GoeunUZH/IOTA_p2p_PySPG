@@ -15,6 +15,7 @@ import graph_tool.all as gt
 import math
 
 from betweenness_partition import get_unweighted_Partitioning
+from get_greedy_Partitioning import get_greedy_Partitioning
 
 import spg
 from spg.runner import SingleRunner
@@ -75,8 +76,10 @@ def run_simulation(par_dict):
     output['diameter'],_ = gt.pseudo_diameter(g)
     output['clustering'],_ = gt.global_clustering(g)
     output['assortativity'],_ = gt.scalar_assortativity(g, v_mana) 
-    output['partitionCostRatio'],_ = get_unweighted_Partitioning(g, N, mana_list)
-    _,output['smallManaPercent'] = get_unweighted_Partitioning(g, N, mana_list)
+    output['bt_partitionCostRatio'],_ = get_unweighted_Partitioning(g, N, mana_list)
+    _,output['bt_smallManaPercent'] = get_unweighted_Partitioning(g, N, mana_list)
+    output['greedy_partitionCostRatio'],_ = get_greedy_Partitioning(g, N, mana_list)
+    _,output['greedy_smallManaPercent'] = get_greedy_Partitioning(g, N, mana_list)
 
      
     return output
