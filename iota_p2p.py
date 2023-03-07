@@ -15,7 +15,7 @@ import graph_tool.all as gt
 import math
 
 from betweenness_partition import get_unweighted_Partitioning
-from get_greedy_Partitioning import get_greedy_Partitioning
+from greedy_link_partition import get_greedy_Partitioning
 
 import spg
 from spg.runner import SingleRunner
