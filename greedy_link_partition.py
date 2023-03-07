@@ -38,7 +38,7 @@ def get_greedy_Partitioning(g, N, mana_list):
         after_remove_weight = eweight.fa
         cost_ratio = (sum(original_weight)-sum((after_remove_weight)))/sum(original_weight)
     #                         print(cost_ratio)
-        partition_cost_array[a, b, c, l-1, m-1] = cost_ratio
+        partition_cost = cost_ratio
 
 
         small_part_mana_list=[]
@@ -50,11 +50,11 @@ def get_greedy_Partitioning(g, N, mana_list):
                 small_mana_percent = 1-(sum(small_part_mana_list)/sum(mana_list))
             
         
-        small_mana_percent_array[a, b, c, l-1, m-1] = small_mana_percent         
+        small_mana_percent = small_mana_percent         
         
                         
                         
 
 
-    return(partition_cost_array, small_mana_percent_array)
+    return(partition_cost, small_mana_percent)
 
