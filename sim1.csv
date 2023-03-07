@@ -1,0 +1,2 @@
+R,N,zipfs,k,diameter,clustering,assortativity,bt_partitionCostRatio,bt_smallManaPercent,greedy_partitionCostRatio,greedy_smallManaPercent
+10,1000,0.8,4,8.0,0.010374832663989291,0.7170211656342107,0.05461067201406391,0.27813829188503003,1.0,0.0002573445703064614
